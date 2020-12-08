@@ -5,6 +5,11 @@
     </ion-buttons>
     <ion-title>Liste des utilisateurs</ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-button (click)="loadUsers(null)">
+      Plus d'utilisateurs
+    </ion-button>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -19,5 +24,10 @@
       </ion-label>
     </ion-item>
   </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="loadUsers($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
 </ion-content>

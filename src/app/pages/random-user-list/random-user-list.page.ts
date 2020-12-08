@@ -20,10 +20,10 @@ export class RandomUserListPage implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.loadUsers();
+    this.loadUsers(null);
   }
 
-  public loadUsers() {
+  public loadUsers(even) {
     // Requête HTTP, la méthode get retourn un observable
     this.http.get(URL)
       // L'observable est résolu par la méthode subscribe
@@ -31,7 +31,11 @@ export class RandomUserListPage implements OnInit {
         // fonction callback de succès
         (response: any) => {
           console.log(response);
-          this.userList = response.results;
+          this.userList = this.userList.concat(response.results);
+          if (even) {
+            // Fin de chargement des données
+            even.target.complete();
+          }
         }
       );
   }
