@@ -15,6 +15,10 @@ export class RandomUserListPage implements OnInit {
   // La liste des utilisateurs
   public userList = [];
 
+  public numberOfUsersPerRequest = '5';
+  public genderChoice = 'female';
+  public nationalityChoice = 'fr';
+
   // Injection d'une instance d'HttpClient dans le constructeur
   // stockée dans une variable nommée http
   constructor(private http: HttpClient) { }
@@ -27,9 +31,9 @@ export class RandomUserListPage implements OnInit {
 
     // Critères de la requête
     const search = new HttpParams()
-      .set('results', '20')
-      .set('gender', 'female')
-      .set('nat', 'es');
+      .set('results', this.numberOfUsersPerRequest)
+      .set('gender', this.genderChoice)
+      .set('nat', this.nationalityChoice);
 
     // Requête HTTP, la méthode get retourn un observable
     this.http.get(URL, {params: search})

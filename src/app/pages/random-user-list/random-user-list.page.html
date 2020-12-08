@@ -10,6 +10,28 @@
       Plus d'utilisateurs
     </ion-button>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-item>
+      <ion-label>Nombre d'utilisateurs par requête</ion-label>
+      <ion-input type="number" [(ngModel)]="numberOfUsersPerRequest"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Genre</ion-label>
+      <ion-select [(ngModel)]="genderChoice">
+        <ion-select-option value="female">Féminin</ion-select-option>
+        <ion-select-option value="male">Masculin</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nationalité</ion-label>
+      <ion-select [(ngModel)]="nationalityChoice">
+        <ion-select-option value="fr">Française</ion-select-option>
+        <ion-select-option value="de">Allemande</ion-select-option>
+        <ion-select-option value="es">Espagnole</ion-select-option>
+        <ion-select-option value="dk">Danoise</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -21,6 +43,7 @@
       </ion-avatar>
       <ion-label>
         <h3>{{user.name.first}} {{user.name.last}}</h3>
+        <p>{{ user.nat }} {{ user.gender }}</p>
       </ion-label>
     </ion-item>
   </ion-list>
