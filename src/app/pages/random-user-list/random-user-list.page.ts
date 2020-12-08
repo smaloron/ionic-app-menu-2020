@@ -1,4 +1,9 @@
+
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+
+// L'url de l'API à laquelle on veut se connecter
+const URL = 'https://randomuser.me/api?results=10';
 
 @Component({
   selector: 'app-random-user-list',
@@ -7,9 +12,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RandomUserListPage implements OnInit {
 
-  constructor() { }
+  // La liste des utilisateurs
+  public userList = [];
+
+  // Injection d'une instance d'HttpClient dans le constructeur
+  // stockée dans une variable nommée http
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.loadUsers();
+  }
+
+  public loadUsers() {
+    // Requête HTTP, la méthode get retourn un observable
+    this.http.get(URL)
+      // L'observable est résolu par la méthode subscribe
+      .subscribe(
+        // fonction callback de succès
+        (response: any) => {
+          console.log(response);
+          this.userList = response.results;
+        }
+      );
   }
 
 }
