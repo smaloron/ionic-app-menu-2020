@@ -1,9 +1,9 @@
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 // L'url de l'API à laquelle on veut se connecter
-const URL = 'https://randomuser.me/api?results=10';
+const URL = 'https://randomuser.me/api';
 
 @Component({
   selector: 'app-random-user-list',
@@ -24,8 +24,15 @@ export class RandomUserListPage implements OnInit {
   }
 
   public loadUsers(even) {
+
+    // Critères de la requête
+    const search = new HttpParams()
+      .set('results', '20')
+      .set('gender', 'female')
+      .set('nat', 'es');
+
     // Requête HTTP, la méthode get retourn un observable
-    this.http.get(URL)
+    this.http.get(URL, {params: search})
       // L'observable est résolu par la méthode subscribe
       .subscribe(
         // fonction callback de succès
