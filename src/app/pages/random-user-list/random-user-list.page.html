@@ -10,7 +10,7 @@
 <ion-content>
 
   <ion-list>
-    <ion-item *ngFor="let user of userList">
+    <ion-item *ngFor="let user of (userRequest | async)?.results">
       <ion-avatar slot="start">
         <ion-img [src]="user.picture.large"></ion-img>
       </ion-avatar>
