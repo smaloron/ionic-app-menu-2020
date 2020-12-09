@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FolderPageRoutingModule } from './folder-routing.module';
+import { StarWarsListPageRoutingModule } from './star-wars-list-routing.module';
 
-import { FolderPage } from './folder.page';
+import { StarWarsListPage } from './star-wars-list.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FolderPageRoutingModule
+    StarWarsListPageRoutingModule
   ],
-  declarations: [FolderPage]
+  declarations: [StarWarsListPage]
 })
-export class FolderPageModule {}
+export class StarWarsListPageModule {}

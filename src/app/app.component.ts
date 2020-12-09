@@ -16,6 +16,11 @@ export class AppComponent implements OnInit {
       title: 'Liste des utilisateurs',
       url: '/random-user-list',
       icon: 'people'
+    },
+    {
+      title: 'Personnages de Star Wars',
+      url: '/star-wars-list',
+      icon: 'star'
     }
   ];
 
