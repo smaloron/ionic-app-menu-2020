@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'star-wars-list',
     loadChildren: () => import('./pages/star-wars-list/star-wars-list.module').then( m => m.StarWarsListPageModule)
+  },
+  {
+    path: 'swapi-details/:id',
+    loadChildren: () => import('./pages/swapi-details/swapi-details.module').then( m => m.SwapiDetailsPageModule)
   }
 ];
 

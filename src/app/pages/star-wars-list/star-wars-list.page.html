@@ -10,7 +10,7 @@
 <ion-content>
 
   <ion-list>
-    <ion-item *ngFor="let character of characterList">
+    <ion-item *ngFor="let character of characterList" routerLink="/swapi-details/{{ getId(character) }}">
       <h3>{{ character.name }}</h3>
     </ion-item>
   </ion-list>

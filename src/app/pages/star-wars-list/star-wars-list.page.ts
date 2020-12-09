@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { url } from 'inspector';
 
 // adresse de l'API
 const URL = 'https://swapi.dev/api/people';
@@ -51,6 +52,11 @@ export class StarWarsListPage implements OnInit {
   public previousPage() {
     this.loadData(this.prevURL);
     this.page--;
+  }
+
+  public getId(item) {
+    const urlParts = item.url.split('/');
+    return urlParts[urlParts.length - 2];
   }
 
 }
