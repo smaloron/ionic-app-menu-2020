@@ -16,3 +16,25 @@
   </ion-list>
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" (click)="previousPage()" *ngIf="prevURL">
+            Précédent
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-chip>{{ page }}</ion-chip>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" (click)="nextPage()" *ngIf="nextURL">
+            Suivant
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
