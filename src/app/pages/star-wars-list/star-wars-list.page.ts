@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { url } from 'inspector';
 
 // adresse de l'API
-const URL = 'https://swapi.dev/api/people';
+export const URL = 'https://swapi.dev/api/people';
 
 
 @Component({
