@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'star-wars-list',
+    redirectTo: 'map',
     pathMatch: 'full'
   },
   {

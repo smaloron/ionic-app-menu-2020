@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Map, tileLayer, marker, circle } from 'leaflet';
+
 
 @Component({
   selector: 'app-map',
@@ -10,13 +12,18 @@ export class MapPage implements OnInit {
 
   private map: Map;
 
-  constructor() { }
+  constructor(private geolocation: Geolocation) { }
 
   ngOnInit() {
   }
 
   ionViewDidEnter() {
-    this.initMap([33.6396965, -84.4304574]);
+    console.log('début de géoloc');
+    this.geolocation.getCurrentPosition()
+      .then(response => {
+        const coords = [response.coords.latitude, response.coords.longitude];
+        this.initMap(coords);
+      });
   }
 
   initMap(coords) {
@@ -25,7 +32,7 @@ export class MapPage implements OnInit {
     this.map.setView(coords, 10);
     tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {})
       .addTo(this.map);
-    
+
     // Ajout d'un marqueur
     circle(coords, { color: 'green', radius: 10 }).addTo(this.map)
       .bindPopup('<p>Vous êtes ici !!</p>');
