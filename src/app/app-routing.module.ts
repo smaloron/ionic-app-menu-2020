@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'planet-details/:id',
     loadChildren: () => import('./pages/planet-details/planet-details.module').then( m => m.PlanetDetailsPageModule)
+  },
+  {
+    path: 'map',
+    loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule)
   }
 ];
 

@@ -26,6 +26,11 @@ export class AppComponent implements OnInit {
       title: 'Planètes de Star Wars',
       url: '/planet-list',
       icon: 'planet'
+    },
+    {
+      title: 'Cartographie',
+      url: '/map',
+      icon: 'map'
     }
   ];
 
