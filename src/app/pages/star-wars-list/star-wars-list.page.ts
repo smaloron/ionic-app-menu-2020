@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { url } from 'inspector';
+import { StarWarsService } from 'src/app/services/star-wars.service';
 
 // adresse de l'API
 export const URL = 'https://swapi.dev/api/people';
@@ -21,7 +22,7 @@ export class StarWarsListPage implements OnInit {
   public page = 1;
 
   // Injection d'une instance de HttpClient dans le constructeur
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public starWarsService: StarWarsService) { }
 
   ngOnInit() {
     // Appel de la fonction chargée de récupérer les données depuis l'API
@@ -54,9 +55,6 @@ export class StarWarsListPage implements OnInit {
     this.page--;
   }
 
-  public getId(item) {
-    const urlParts = item.url.split('/');
-    return urlParts[urlParts.length - 2];
-  }
+
 
 }

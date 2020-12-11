@@ -18,6 +18,14 @@ const routes: Routes = [
   {
     path: 'swapi-details/:id',
     loadChildren: () => import('./pages/swapi-details/swapi-details.module').then( m => m.SwapiDetailsPageModule)
+  },
+  {
+    path: 'planet-list',
+    loadChildren: () => import('./pages/planet-list/planet-list.module').then( m => m.PlanetListPageModule)
+  },
+  {
+    path: 'planet-details/:id',
+    loadChildren: () => import('./pages/planet-details/planet-details.module').then( m => m.PlanetDetailsPageModule)
   }
 ];
 

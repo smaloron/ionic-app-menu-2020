@@ -21,6 +21,11 @@ export class AppComponent implements OnInit {
       title: 'Personnages de Star Wars',
       url: '/star-wars-list',
       icon: 'star'
+    },
+    {
+      title: 'Planètes de Star Wars',
+      url: '/planet-list',
+      icon: 'planet'
     }
   ];
 
