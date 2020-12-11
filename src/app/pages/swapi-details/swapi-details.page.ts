@@ -13,7 +13,7 @@ import { URL } from '../star-wars-list/star-wars-list.page';
 export class SwapiDetailsPage implements OnInit {
 
   public character = {
-    name: null, height: null, mass: null, films: []
+    name: null, height: null, mass: null, films: [], homeworld: { name: null}
   };
 
   constructor(
@@ -37,6 +37,14 @@ export class SwapiDetailsPage implements OnInit {
       console.log(response);
       // affectation de la réponse à la variable character
       this.character = response;
+
+      // Récupération des informations concernant la planète
+      this.http.get(response.homeworld).subscribe(
+        (homeworld: any) => {
+          this.character.homeworld = homeworld;
+        }
+      );
+
       // Tableau des appels à l'API pour récupérer la liste des films
       const apiCalls = [];
       for (const url of response.films) {
@@ -51,6 +59,8 @@ export class SwapiDetailsPage implements OnInit {
       );
     });
   }
+
+
 
   public getDate(date: string) {
     return new Date(date);
