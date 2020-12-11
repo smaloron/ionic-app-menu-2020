@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { url } from 'inspector';
 import { StarWarsService } from 'src/app/services/star-wars.service';
 
 // adresse de l'API
